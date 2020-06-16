@@ -29,14 +29,23 @@ const styles = {
     display: "grid",
     gridTemplateColumns: "repeat(3,30%)",
     gridGap: "5%",
-  }
+  },
 };
 
 class PaletteList extends Component {
+  goToPalette(id) {
+    this.props.history.push(`/palette/${id}`);
+  }
+
   render() {
     const { palettes, classes } = this.props;
 
-    const palette = palettes.map((palette) => <MiniPalette {...palette} />);
+    const palette = palettes.map((palette) => (
+      <MiniPalette
+        {...palette}
+        handleClick={() => this.goToPalette(palette.id)}
+      />
+    ));
 
     return (
       <div className={classes.root}>

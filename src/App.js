@@ -11,24 +11,24 @@ import { generatePalette } from "./colorHelpers";
 import PaletteList from "./Components/PaletteList/PaletteList";
 
 class App extends Component {
-
-
-
   findPalette(id) {
     return seedColors.find((palette) => {
-      console.log(palette);  
+      console.log(palette);
       return palette.id === id;
-        
-      }
-    );
+    });
   }
 
-
   render() {
-    console.log(seedColors)
+    console.log(seedColors);
     return (
       <Switch>
-        <Route exact path="/" render={() => <PaletteList palettes={seedColors} />} />
+        <Route
+          exact
+          path="/"
+          render={(routeProps) => (
+            <PaletteList palettes={seedColors} {...routeProps} />
+          )}
+        />
         <Route
           exact
           path="/palette/:id"
@@ -46,4 +46,3 @@ class App extends Component {
 }
 
 export default App;
-
