@@ -20,32 +20,43 @@ export default class ColorPalette extends Component {
     this.setState({ level });
   }
 
-  changeFormat(format){
+  changeFormat(format) {
     this.setState({ format });
   }
 
   render() {
-    const { colors, paletteName, emoji } = this.props.palette;
-    const { level,format  } = this.state;
+
+    const { colors, paletteName, emoji, id } = this.props.palette;
+    const { level, format } = this.state;
 
     const colorBoxes = colors[level].map((color) => (
-      <ColorBox background={color[format]} name={color.name} key={color.id} />
+      <ColorBox
+        background={color[format]}
+        name={color.name}
+        key={color.id}
+        id={color.id}
+        paletteId={id}
+        showMoreLink
+      />
     ));
     return (
       <div className="ColorPalette">
         <div className="ColorPalette-slider">
-          <Navbar level={level} changeLevel={this.changeLevel} handleChange={this.changeFormat}/>
+          <Navbar
+            level={level}
+            changeLevel={this.changeLevel}
+            handleChange={this.changeFormat}
+          />
         </div>
 
         <div className="ColorPalette-colors">{colorBoxes}</div>
-        
+
         <footer className="ColorPalette-footer">
           {paletteName}
           <span className="ColorPalette-emoji">{emoji}</span>
-        </footer>        
+        </footer>
         <div></div>
       </div>
     );
   }
 }
-
