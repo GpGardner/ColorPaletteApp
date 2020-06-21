@@ -8,13 +8,21 @@
   margin-bottom: -4px;
 }
 
+.SingleColorPalette .ColorBox {
+  height: 50%;
+}
+
+.SingleColorPalette .go-back {
+  background-color: black;
+}
+
 /* .ColorBox:hover {
   transform: scale(1.05);
   transition: transform 0.2s ease-in-out;
   z-index: 25;
 } */
 
-.ColorBox-copy {
+.ColorBox-copy, .SingleColorPalette-backButton {
   width: 100px;
   height: 30px;
   position: absolute;
@@ -30,7 +38,11 @@
   line-height: 30px;
   color: white;
   text-transform: uppercase;
+  text-decoration: none;
   border: none;
+}
+
+.ColorBox-copy {
   opacity: 0;
 }
 
