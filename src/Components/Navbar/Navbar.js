@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Slider from "rc-slider";
 // { Range }
@@ -28,32 +28,34 @@ export default class Navbar extends Component {
     let format = e.target.value;
     this.setState({ format, open: true });
     this.props.handleChange(format);
-    setTimeout(this.closeSnackbar, 3000)
+    setTimeout(this.closeSnackbar, 3000);
   }
 
   closeSnackbar() {
     this.setState({ open: false });
   }
   render() {
-    const { level, changeLevel } = this.props;
+    const { level, changeLevel, showShadesSlider } = this.props;
     const { format } = this.state;
     return (
       <header className="Navbar">
         <div className="Navbar-logo">
-          <Link to="/">Georges Palette</Link>
+          <Link to="/">The Colors App</Link>
         </div>
-        <div className="Navbar-slider-container">
-          <span>Level: {level}</span>
-          <div className="Navbar-slider">
-            <Slider
-              defaultValue={level}
-              min={100}
-              max={900}
-              step={100}
-              onAfterChange={changeLevel}
-            />
+        {showShadesSlider && (
+          <div className="Navbar-slider-container">
+            <span>Level: {level}</span>
+            <div className="Navbar-slider">
+              <Slider
+                defaultValue={level}
+                min={100}
+                max={900}
+                step={100}
+                onAfterChange={changeLevel}
+              />
+            </div>
           </div>
-        </div>
+        )}
         <div className="Navbar-select-container">
           <Select value={format} onChange={this.handleFormatChange}>
             <MenuItem value="hex">HEX - #ffffff</MenuItem>
@@ -66,12 +68,19 @@ export default class Navbar extends Component {
           open={this.state.open}
           autoHideDuration={3000}
           message={
-            <span id="Navbar-message-id">Format Changed: {format.toUpperCase()}</span>
+            <span id="Navbar-message-id">
+              Format Changed: {format.toUpperCase()}
+            </span>
           }
           ContentProps={{ "aria-describedby": "Navbar-message-id" }}
           onClose={this.closeSnackbar}
           action={
-            <IconButton onClick={this.closeSnackbar} color="inherit" key="close" aria-label='close'>
+            <IconButton
+              onClick={this.closeSnackbar}
+              color="inherit"
+              key="close"
+              aria-label="close"
+            >
               <CloseIcon />
             </IconButton>
           }
