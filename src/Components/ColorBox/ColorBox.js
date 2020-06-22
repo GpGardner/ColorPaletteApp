@@ -6,6 +6,13 @@ import chroma from "chroma-js";
 import { Link } from "react-router-dom";
 
 const styles = {
+  copyText: {
+    color: "purple"
+  },
+
+
+
+
   toDarkifLight: {
     color: props => chroma(props.background).luminance() >= 0.65 ? "black" : "white",
   },
