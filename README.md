@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This is a react project created to allow a user to compare colors, and see how colors will interact with eachother.
 
-### "/"
+### "Home"
 
 Here a user can see all the different palettes currently stored in state. Each palette is a minifid verison of itself to allow the user to preview the available colors. Clicking on each palette takes you to a specific page for each - /palette/{name}. This will eventually use a get request to pull in the data specific to each user.
 
