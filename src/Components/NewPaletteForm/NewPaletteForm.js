@@ -129,10 +129,23 @@ class NewPaletteForm extends Component {
     );
 
     ValidatorForm.addValidationRule("isColorUnique", (value) =>
-      this.state.colors.every(
-        ({ color }) => color !== this.state.currentColor
-      )
+      this.state.colors.every(({ color }) => color !== this.state.currentColor)
     );
+  }
+  
+  handleSavePalette = () => {
+    let newName = "New Test Palette"
+    let newPaletteId = newName.toLowerCase().replace(/ /g, "-");
+    // newName.split(' ').join('-').toLowerCase();
+    
+    const newPalette = {
+      paletteName: newName,
+      colors: this.state.colors,
+      id: newPaletteId,
+      emoji: '🥰'
+    }
+    this.props.savePalette(newPalette);
+    this.props.history.push("/");
   }
 
   render() {
@@ -147,6 +160,7 @@ class NewPaletteForm extends Component {
           className={classNames(classes.appBar, {
             [classes.appBarShift]: open,
           })}
+          color="default"
         >
           <Toolbar disableGutters={!open}>
             <IconButton
@@ -160,6 +174,7 @@ class NewPaletteForm extends Component {
             <Typography variant="h6" color="inherit" noWrap>
               Persistent drawer
             </Typography>
+            <Button variant="contained" color="primary" onClick={this.handleSavePalette}>Save Palette</Button>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -198,7 +213,7 @@ class NewPaletteForm extends Component {
               errorMessages={[
                 "this field is required",
                 "that color name is already taken",
-                "you already have choosen that color!"
+                "you already have choosen that color!",
               ]}
             />
             <Button
@@ -230,10 +245,5 @@ class NewPaletteForm extends Component {
     );
   }
 }
-
-// PersistentDrawerLeft.propTypes = {
-//   classes: PropTypes.object.isRequired,
-//   theme: PropTypes.object.isRequired,
-// };
 
 export default withStyles(styles, { withTheme: true })(NewPaletteForm);
