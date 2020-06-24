@@ -153,6 +153,13 @@ class NewPaletteForm extends Component {
     this.props.history.push("/");
   };
 
+  removeColorBox = (boxName) => {
+    let newColors = this.state.colors.filter((color) => color.name !== boxName)
+    this.setState({
+      colors: newColors
+    })
+  }
+
   render() {
     const { classes } = this.props;
     const { open } = this.state;
@@ -264,6 +271,7 @@ class NewPaletteForm extends Component {
               color={color.color}
               name={color.name}
               key={color.name}
+              removeColorBox={this.removeColorBox}
             />
           ))}
         </main>
