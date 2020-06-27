@@ -13,6 +13,8 @@ import { arrayMove } from "react-sortable-hoc";
 import PaletteFormNav from "./PaletteFormNav";
 import ColorPickerForm from "./ColorPickerForm";
 
+
+//TODO: put drawerwidth in a variables file
 const drawerWidth = 400;
 
 const styles = (theme) => ({
@@ -20,24 +22,6 @@ const styles = (theme) => ({
     display: "flex",
   },
   toolbar: theme.mixins.toolbar,
-  appBar: {
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  menuButton: {
-    marginLeft: 12,
-    marginRight: 20,
-  },
   hide: {
     display: "none",
   },
@@ -161,7 +145,6 @@ class NewPaletteForm extends Component {
       <div className={classes.root}>
         <PaletteFormNav
           open={open}
-          classes={classes}
           palettes={palettes}
           handleSavePalette={this.handleSavePalette}
           handleDrawerOpen={this.handleDrawerOpen}
