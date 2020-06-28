@@ -7,6 +7,8 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import {Picker} from "emoji-mart";
+import 'emoji-mart/css/emoji-mart.css';
 
 class PaletteDataModal extends Component {
   constructor(props) {
@@ -23,11 +25,11 @@ class PaletteDataModal extends Component {
     });
   };
 
-  handleClose = () => {
-    this.setState({
-      open: false,
-    });
-  };
+//   handleClose = () => {
+//     this.setState({
+//       open: false,
+//     });
+//   };
 
   handleTextChange = (evt) => {
     this.setState({
@@ -45,11 +47,11 @@ class PaletteDataModal extends Component {
 
   render() {
     const { open, newPaletteName } = this.state;
-    const { handleSavePalette } = this.props;
+    const { handleSavePalette, hideForm } = this.props;
     return (
         <Dialog
           open={open}
-          onClose={this.handleClose}
+          onClose={hideForm}
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title">Choose a Palette Name</DialogTitle>
@@ -58,6 +60,7 @@ class PaletteDataModal extends Component {
               <DialogContentText>
                 Please enter a new name for your newly created palette. It must be unique!
               </DialogContentText>
+              <Picker />
               <TextValidator
                 label="Palette Name"
                 name="newPaletteName"
@@ -73,7 +76,7 @@ class PaletteDataModal extends Component {
               />
             </DialogContent>
             <DialogActions>
-              <Button onClick={this.handleClose} color="primary">
+              <Button onClick={hideForm} color="primary">
                 Cancel
               </Button>
               <Button variant="contained" color="primary" type="submit">
