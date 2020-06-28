@@ -8,7 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Button from "@material-ui/core/Button";
 import DraggableColorList from "./DraggableColorList";
-import { ValidatorForm } from "react-material-ui-form-validator";
+// import { ValidatorForm } from "react-material-ui-form-validator";
 import { arrayMove } from "react-sortable-hoc";
 import PaletteFormNav from "./PaletteFormNav";
 import ColorPickerForm from "./ColorPickerForm";
@@ -108,18 +108,18 @@ class NewPaletteForm extends Component {
     });
   };
 
-  handleSavePalette = (newPaletteName) => {
-    const { colors /*, id, emoji*/ } = this.state;
-    const newPaletteId = newPaletteName.toLowerCase().replace(/ /g, "-");
+  handleSavePalette = (newPalette) => {
+    const { colors } = this.state;
+    const newPaletteId = newPalette.name.toLowerCase().replace(/ /g, "-");
     // newColorName.split(' ').join('-').toLowerCase();
 
-    const newPalette = {
-      paletteName: newPaletteName,
+    const newCreatedPalette = {
+      paletteName: newPalette.name,
       colors: colors,
       id: newPaletteId,
-      emoji: "🥰",
+      emoji: newPalette.emoji,
     };
-    this.props.savePalette(newPalette);
+    this.props.savePalette(newCreatedPalette);
     this.props.history.push("/");
   };
 
