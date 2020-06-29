@@ -42,14 +42,22 @@ class PaletteList extends Component {
     this.props.history.push(`/palette/${id}`);
   }
 
+  deleteMiniPalette = () => {
+    this.setState(st => console.log(st)
+
+    )
+  }
+
   render() {
-    const { palettes, classes } = this.props;
+    const { palettes, classes, deleteMiniPalette } = this.props;
 
     const palette = palettes.map((palette) => (
       <MiniPalette
         {...palette}
         handleClick={() => this.goToPalette(palette.id)}
         key={palette.id}
+        id={palette.id}
+        deleteMiniPalette={deleteMiniPalette}
       />
     ));
 
