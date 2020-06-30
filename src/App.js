@@ -16,8 +16,14 @@ class App extends Component {
     super(props);
     const savedPalettes = JSON.parse(window.localStorage.getItem("palettes"));
     this.state = {
-      palettes: savedPalettes || seedColors,
+      palettes: savedPalettes,
     };
+  }
+
+  componentDidMount(){
+    if(this.state.palettes < 1 ){
+      this.setState({ palettes: seedColors})
+    }
   }
 
   findPalette(id) {
