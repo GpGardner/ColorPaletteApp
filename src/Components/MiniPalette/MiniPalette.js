@@ -80,7 +80,7 @@ class MiniPalette extends Component {
   }
 
   render() {
-    const { classes, paletteName, emoji, colors, handleClick, fadeOut } = this.props;
+    const { classes, paletteName, emoji, colors, handleClick} = this.props;
     const miniColorBoxes = colors.map((color) => (
       <div
         className={classes.miniColor}
