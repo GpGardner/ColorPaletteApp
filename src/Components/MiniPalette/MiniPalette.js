@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
+import "../Styles/animation.css"
 
 import { withStyles } from "@material-ui/styles";
 
@@ -62,16 +63,24 @@ const styles = {
 class MiniPalette extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      fading: false,
+    }
   }
 
   deleteMiniPalette = (e) => {
     e.stopPropagation();
     const { deleteMiniPalette, id } = this.props;
+    this.setState({
+      fading: true
+    })
+    setTimeout(() => {
     deleteMiniPalette(id);
+    }, 500);
   }
 
   render() {
-    const { classes, paletteName, emoji, colors, handleClick } = this.props;
+    const { classes, paletteName, emoji, colors, handleClick, fadeOut } = this.props;
     const miniColorBoxes = colors.map((color) => (
       <div
         className={classes.miniColor}
@@ -79,9 +88,9 @@ class MiniPalette extends Component {
         key={color.name}
       ></div>
     ));
-
+    let styles = this.state.fading ? `${classes.root} puff-out-center`: classes.root;
     return (
-      <div className={classes.root} onClick={handleClick}>
+      <div className={styles} onClick={handleClick}>
         <div>
           <DeleteIcon
             className={classes.deleteIcon}
