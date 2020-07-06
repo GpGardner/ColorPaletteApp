@@ -7,7 +7,8 @@ This is a react project created to allow a user to compare colors, and see how c
 ## Deployed at :
 
 https://colorpickerapp.netlify.app/
-TODO: Mobile friendly, bug with new colors, prevent duplicate random colors
+
+TODO: Mobile friendly, bug with new colors, prevent duplicate random colors, add backend
 
 ### "Home"
 
