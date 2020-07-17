@@ -8,7 +8,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Color Palette App
 
 This is a react project created to allow a user to compare colors, and see how colors will interact with eachother.
-* React * React-Router
+
+The project takes advantage of - 
+* React
+* React-Router
+* Drag-n-drop
+* Material-UI
+* SPA
+* and several others
 
 ### "Home"
 
