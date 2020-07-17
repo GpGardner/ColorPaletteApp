@@ -35,6 +35,8 @@ Hex can also be changed using the drop down menu to rgb, and rgba.
 
 ### "/new/palette"
 
+![add new palette](https://i.ibb.co/NLbmwt4/Screen-Shot-2020-07-17-at-1-13-43-PM.png)
+
 This is where someone can create a customized palette with up to 20 colors. User must specify a palette name at the top before submitting, this name also must not be the same as palettes already stored.
 
 The user can open the drawer on the left and use the color picker to select a color. Then they must select a new name and use the button to add the color to the palette.
