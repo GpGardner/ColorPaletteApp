@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+![Main Page](https://i.ibb.co/xXYnBd6/Screen-Shot-2020-07-17-at-1-12-55-PM.png)
+
 # Color Palette App
 
 This is a react project created to allow a user to compare colors, and see how colors will interact with eachother.
