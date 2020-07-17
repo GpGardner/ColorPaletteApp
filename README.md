@@ -17,6 +17,8 @@ Clicking create new palette will take you to /new/palette
 
 ### "/palette/{name}"
 
+![Full palette](https://i.ibb.co/55GJDc6/Screen-Shot-2020-07-17-at-1-13-21-PM.png)
+
 This page allows a user to see the full version of their palette.
 
 Using the slider in the top bar, a user can adjust the "shade" to try lighter or darker variations of all of the colors in the palette.
