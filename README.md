@@ -4,11 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This is a react project created to allow a user to compare colors, and see how colors will interact with eachother.
 
-## Deployed at :
 
-https://colorpickerapp.netlify.app/
-
-TODO: Mobile friendly, bug with new colors, prevent duplicate random colors, add backend
+TODO: Mobile friendly, bug with new colors, prevent duplicate random colors, add backend, deploy
 
 ### "Home"
 
